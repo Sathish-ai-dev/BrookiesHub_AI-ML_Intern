@@ -27,10 +27,8 @@ AAPL_ARIMA_Forecast/
    ```bash
    git clone https://github.com/your-username/AAPL_ARIMA_Forecast.git
    cd AAPL_ARIMA_Forecast
-
-pip install pandas matplotlib seaborn statsmodels scikit-learn
-
-python aapl_arima_forecast.py
+   pip install pandas matplotlib seaborn statsmodels scikit-learn
+   python aapl_arima_forecast.py
 
 # 📊 Workflow Overview
 Load and visualize the AAPL stock price data
