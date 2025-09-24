@@ -61,9 +61,8 @@ pip install numpy==1.26.4 protobuf==3.20.3
   - bash
      * streamlit run app.py
      * Then open your browser to:
-
-Code
-http://localhost:8501
+     * Code : http://localhost:8501
+     
 # 📹 Demo Video
  - Include a screen recording showing:
 
@@ -89,7 +88,7 @@ http://localhost:8501
 
  - Hugging Face Spaces
 
- -Render
+ - Render
 
 # 🙌 Credits
    * Ultralytics YOLOv5
