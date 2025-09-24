@@ -39,7 +39,7 @@ yolov5_streamlit_app/
 bash
 git clone https://github.com/ultralytics/yolov5
 2. Download Pre-trained Model
-Download yolov5s.pt from YOLOv5 Releases and place it in the project root.
+Download yolov5s.pt from (https://github.com/ultralytics/yolov5/releases/download/v7.0/yolov5s.pt) YOLOv5 Releases and place it in the project root.
 
 3. Install Dependencies
 bash
