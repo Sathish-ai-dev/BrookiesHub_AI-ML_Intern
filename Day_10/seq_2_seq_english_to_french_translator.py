@@ -1,27 +1,4 @@
-"""
-Seq2Seq English -> French translator (LSTM + Luong-style attention)
-Full notebook-style Python script suitable for running in Jupyter or as a .py file.
 
-What this file includes:
-- Downloading the small English-French dataset (ManyThings / fra-eng)
-- Preprocessing (tokenization, padding, start/end tokens)
-- Building an encoder-decoder LSTM model with Luong-style attention
-- Training with a masked loss to ignore padding tokens
-- Saving model and tokenizers
-- Building inference (encoder_model + decoder_model) and a translate() demo
-- Optional minimal Flask demo scaffold (commented)
-
-Notes:
-- This implementation uses a vectorized Luong attention so the training model is straightforward
-  and inference is implemented step-by-step re-using the same layer weights.
-- For a faster toy run, reduce NUM_SAMPLES and EPOCHS.
-
-Requirements (install before running):
-pip install --upgrade pip
-pip install tensorflow numpy pandas matplotlib scikit-learn requests tqdm flask
-
-Run in Jupyter: either paste cells or run this script. The training step may take time on CPU.
-"""
 
 import os
 import io
@@ -204,21 +181,11 @@ def build_inference_models(encoder_inputs_shape, max_enc_len, max_dec_len, units
     # encoder_inputs_shape is vocab-based (we need the encoder input placeholder for the encoder model)
     encoder_inputs = Input(shape=(max_enc_len,), name='enc_inputs_inf')
     enc_emb = encoder_lstm_layer.input._keras_history.layer.embeddings if False else None
-    # Instead of reusing internal embedding (not easily accessible), rebuild embedding and LSTM layers by reusing weights
-    # We will construct a minimal encoder model: take the same encoder embedding and LSTM as in training by reusing weights
-
-    # To reuse weights simply create the same layers and set weights from trained layers
-    # But easier: we will re-run the training-time encoder embedding + encoder_lstm by using the trained model components
-    # Here we assume we have access to the encoder LSTM layer object and its weights are already set in the full model.
-    # Build encoder sub-model using the same layers from the training model graph by connecting to their input tensors.
-    # NOTE: We'll reconstruct encoder model by pulling tensors by name from the training model saved later.
-    # Simpler approach used in this file: After training we will reconstruct inference models by directly referencing
-    # the layers we created when building training model (we return those layers to the caller).
+    
     raise RuntimeError("This function is a placeholder — inference models are constructed below using returned layers.")
 
-# ----------------------
-# Full workflow: download -> prepare -> build -> train -> save -> inference/demo
-# ----------------------
+
+
 
 def run_full_pipeline(num_samples=NUM_SAMPLES, epochs=EPOCHS):
     txt = download_and_extract_dataset()
